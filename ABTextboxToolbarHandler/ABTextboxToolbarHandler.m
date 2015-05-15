@@ -38,7 +38,9 @@
 @synthesize scrvParent, defaultContentSize;
 @synthesize offset, firstResponderIndex, showNextPrevious, spaceWidth;
 @synthesize delegate;
-
+/**
+ Initalize method
+ */
 #pragma mark - Init Methods
 - (instancetype)initWithTextboxs:(NSArray *)textBoxs andScroll:(UIScrollView *)scroll
 {
