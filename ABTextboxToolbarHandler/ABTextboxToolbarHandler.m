@@ -1,14 +1,14 @@
 //
-//  ABTextboxToolbarHandler.m
-//  ABTextboxToolbarHandler
+//  TKTextboxToolbarHandeler.m
+//  Trukit
 //
-//  Created by Amit on 15/05/15.
-//  Copyright (c) 2015 AmitBhavsar. All rights reserved.
+//  Created by Chintan Dave on 06/05/14.
+//  Copyright (c) 2014 AB. All rights reserved.
 //
-
-#import "ABTextboxToolbarHandler.h"
 
 #define spaceWidthOnlyDone 250
+
+#import "ABTextboxToolbarHandler.h"
 
 @interface ABTextboxToolbarHandler () <UITextFieldDelegate, UITextViewDelegate>
 
@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) UIBarButtonItem *btnPrevious;
 @property (strong, nonatomic) UIBarButtonItem *btnNext;
-@property (strong, nonatomic) UIBarButtonItem *btnDone;
+
 @property (strong, nonatomic) UIBarButtonItem *fixedSpace;
 
 @property CGSize defaultContentSize;
@@ -38,9 +38,7 @@
 @synthesize scrvParent, defaultContentSize;
 @synthesize offset, firstResponderIndex, showNextPrevious, spaceWidth;
 @synthesize delegate;
-/**
- Initalize method
- */
+
 #pragma mark - Init Methods
 - (instancetype)initWithTextboxs:(NSArray *)textBoxs andScroll:(UIScrollView *)scroll
 {
@@ -48,17 +46,16 @@
 	
 	if(self)
 	{
-		textBoxes  = textBoxs;
-		scrvParent = scroll  ;
-		
+        textBoxes  = textBoxs;
+        scrvParent = scroll;
+
 		defaultContentSize = scrvParent.contentSize;
 		
-		offset = 10;
+		offset = 50;
 		
-		spaceWidth = 140;
+		spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 180;
 		
 		[self makeToolbar];
-		
 	}
 	
 	return self;
@@ -67,11 +64,11 @@
 #pragma mark - Helper Methods
 - (void) makeToolbar
 {
-	toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+	toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 44)];
 	
-	btnNext     = [[UIBarButtonItem alloc] initWithTitle:@"Next"	 style:UIBarButtonItemStylePlain target:self action:@selector(btnNextTap)];
-	btnPrevious = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(btnPreviousTap)];
-	btnDone     = [[UIBarButtonItem alloc] initWithTitle:@"Done"	 style:UIBarButtonItemStylePlain target:self action:@selector(btnDoneTap:)];
+    btnNext     = [[UIBarButtonItem alloc] initWithTitle:@"Next"	 style:UIBarButtonItemStyleBordered target:self action:@selector(btnNextTap)];
+    btnPrevious = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStyleBordered target:self action:@selector(btnPreviousTap)];
+    btnDone     = [[UIBarButtonItem alloc] initWithTitle:@"Done"	 style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneTap:)];
 	
 	fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	
@@ -86,26 +83,41 @@
 	}
 }
 
+- (void)setOffset:(NSInteger)offSet
+{
+    offset = offSet;
+}
+
+- (void)setShowNextPrevious:(BOOL)show
+{
+	showNextPrevious = show;
+	
+	if(showNextPrevious)
+	{
+		spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 180;
+		
+		[fixedSpace setWidth:spaceWidth];
+		
+		[toolBar setItems:@[btnPrevious, btnNext, fixedSpace, btnDone]];
+	}
+	else
+	{
+		spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 85;
+		
+		[fixedSpace setWidth:spaceWidth];
+		
+		[toolBar setItems:@[fixedSpace, btnDone]];
+	}
+}
+
 #pragma mark - UIToolBar Methods
 - (void) btnNextTap
 {
 	if(firstResponderIndex < (textBoxes.count - 1))
 	{
-		UIView *txtView = (UIView*)textBoxes[firstResponderIndex + 1];
-		BOOL canUserInteraction = txtView.userInteractionEnabled;
+		BOOL canBecome = [textBoxes[firstResponderIndex + 1] becomeFirstResponder];
 		
-		if (canUserInteraction == YES)
-		{
-			BOOL canBecome = [textBoxes[firstResponderIndex + 1] becomeFirstResponder];
-			
-			if(!canBecome)
-			{
-				firstResponderIndex++;
-				
-				[self btnNextTap];
-			}
-		}
-		else
+		if(!canBecome)
 		{
 			firstResponderIndex++;
 			
@@ -114,7 +126,7 @@
 	}
 	else
 	{
-		[self btnDoneTap:nil];
+		[self btnDoneTap];
 	}
 }
 
@@ -122,21 +134,9 @@
 {
 	if(firstResponderIndex > 0)
 	{
-		UIView *txtView = (UIView*)textBoxes[firstResponderIndex - 1];
-		BOOL canUserInteraction = txtView.userInteractionEnabled;
+		BOOL canBecome = [textBoxes[firstResponderIndex - 1] becomeFirstResponder];
 		
-		if (canUserInteraction == YES)
-		{
-			BOOL canBecome = [textBoxes[firstResponderIndex - 1] becomeFirstResponder];
-			
-			if(!canBecome)
-			{
-				firstResponderIndex--;
-				
-				[self btnPreviousTap];
-			}
-		}
-		else
+		if(!canBecome)
 		{
 			firstResponderIndex--;
 			
@@ -159,32 +159,31 @@
 
 - (void) btnDoneTap:(id)sender
 {
-	[[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
+    UIView *txtBox = textBoxes[firstResponderIndex];
+    
+    [scrvParent	setContentSize:defaultContentSize];
+    [scrvParent	setContentOffset:CGPointMake(0,0) animated:YES];
 	
-	[scrvParent	setContentSize:defaultContentSize];
-	[scrvParent	setContentOffset:CGPointMake(0,0) animated:YES];
-	
-	UIView *txtBox = textBoxes[firstResponderIndex];
-	
-	if ([delegate respondsToSelector:@selector(textFieldEndWithDoneButtonwithView:)])
-	{
-		[delegate textFieldEndWithDoneButtonwithView:txtBox];
-	}
+    if ([delegate respondsToSelector:@selector(textboxHandlerButtonDoneTap:)])
+    {
+        [delegate textboxHandlerButtonDoneTap:txtBox];
+    }
 }
-
 
 #pragma mark - UITextFieldDelegate Methods
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
 	firstResponderIndex = [textBoxes indexOfObject:textField];
 	
+    if ([delegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+    {
+        [delegate textFieldShouldBeginEditing:textField];
+    }
+    
 	[scrvParent setContentSize:CGSizeMake(defaultContentSize.width, defaultContentSize.height + 256 + 44)];
 	[scrvParent setContentOffset:CGPointMake(0, [scrvParent convertPoint:CGPointZero fromView:textField].y - offset) animated:YES];
-	
-	if ([delegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
-	{
-		[delegate textFieldShouldBeginEditing:textField];
-	}
 	
 	return YES;
 }
@@ -192,9 +191,17 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
 	if ([delegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
-	{
-		[delegate textFieldDidBeginEditing:textField];
-	}
+    {
+        [delegate textFieldDidBeginEditing:textField];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:)])
+    {
+        [delegate textFieldDidEndEditing:textField];
+    }
 }
 
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -209,19 +216,30 @@
 	}
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)])
+    {
+       return [delegate textFieldShouldReturn:textField];
+    }
+    else
+    {
+		return YES;
+    }
+}
 
 #pragma mark - UITextViewDelegate Methods
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
 	firstResponderIndex = [textBoxes indexOfObject:textView];
 	
-	[scrvParent setContentSize:CGSizeMake(defaultContentSize.width, defaultContentSize.height + 256 + 44)];
-	[scrvParent setContentOffset:CGPointMake(0, [scrvParent convertPoint:CGPointZero fromView:textView].y - offset) animated:YES];
-	
-	if([delegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
+    if([delegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
 	{
 		[delegate textViewShouldBeginEditing:textView];
 	}
+    
+	[scrvParent setContentSize:CGSizeMake(defaultContentSize.width, defaultContentSize.height + 256 + 44)];
+	[scrvParent setContentOffset:CGPointMake(0, [scrvParent convertPoint:CGPointZero fromView:textView].y - offset) animated:YES];
 	
 	return YES;
 }
@@ -236,8 +254,21 @@
 	{
 		return YES;
 	}
-	
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+	if([delegate respondsToSelector:@selector(textViewDidBeginEditing:)])
+	{
+		[delegate textViewDidBeginEditing:textView];
+	}
+}
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	if([delegate respondsToSelector:@selector(textViewDidEndEditing:)])
+	{
+		[delegate textViewDidEndEditing:textView];
+	}
+}
 @end

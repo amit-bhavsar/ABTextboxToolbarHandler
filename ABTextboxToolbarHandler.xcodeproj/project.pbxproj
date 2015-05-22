@@ -13,19 +13,8 @@
 		8226EDBC1B062BA80071F470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8226EDBA1B062BA80071F470 /* Main.storyboard */; };
 		8226EDBE1B062BA80071F470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8226EDBD1B062BA80071F470 /* Images.xcassets */; };
 		8226EDC11B062BA80071F470 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8226EDBF1B062BA80071F470 /* LaunchScreen.xib */; };
-		8226EDCD1B062BA90071F470 /* ABTextboxToolbarHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226EDCC1B062BA90071F470 /* ABTextboxToolbarHandlerTests.m */; };
 		8226EDD81B062BDA0071F470 /* ABTextboxToolbarHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226EDD71B062BDA0071F470 /* ABTextboxToolbarHandler.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8226EDC71B062BA90071F470 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8226EDA51B062BA80071F470 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8226EDAC1B062BA80071F470;
-			remoteInfo = ABTextboxToolbarHandler;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8226EDAD1B062BA80071F470 /* ABTextboxToolbarHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABTextboxToolbarHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,22 +27,12 @@
 		8226EDBB1B062BA80071F470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8226EDBD1B062BA80071F470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8226EDC01B062BA80071F470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8226EDC61B062BA90071F470 /* ABTextboxToolbarHandlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABTextboxToolbarHandlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8226EDCB1B062BA90071F470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8226EDCC1B062BA90071F470 /* ABTextboxToolbarHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTextboxToolbarHandlerTests.m; sourceTree = "<group>"; };
 		8226EDD61B062BDA0071F470 /* ABTextboxToolbarHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTextboxToolbarHandler.h; sourceTree = "<group>"; };
 		8226EDD71B062BDA0071F470 /* ABTextboxToolbarHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTextboxToolbarHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8226EDAA1B062BA80071F470 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8226EDC31B062BA90071F470 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				8226EDAF1B062BA80071F470 /* ABTextboxToolbarHandler */,
-				8226EDC91B062BA90071F470 /* ABTextboxToolbarHandlerTests */,
 				8226EDAE1B062BA80071F470 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				8226EDAD1B062BA80071F470 /* ABTextboxToolbarHandler.app */,
-				8226EDC61B062BA90071F470 /* ABTextboxToolbarHandlerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,23 +84,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8226EDC91B062BA90071F470 /* ABTextboxToolbarHandlerTests */ = {
-			isa = PBXGroup;
-			children = (
-				8226EDCC1B062BA90071F470 /* ABTextboxToolbarHandlerTests.m */,
-				8226EDCA1B062BA90071F470 /* Supporting Files */,
-			);
-			path = ABTextboxToolbarHandlerTests;
-			sourceTree = "<group>";
-		};
-		8226EDCA1B062BA90071F470 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8226EDCB1B062BA90071F470 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,24 +104,6 @@
 			productReference = 8226EDAD1B062BA80071F470 /* ABTextboxToolbarHandler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8226EDC51B062BA90071F470 /* ABTextboxToolbarHandlerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8226EDD31B062BA90071F470 /* Build configuration list for PBXNativeTarget "ABTextboxToolbarHandlerTests" */;
-			buildPhases = (
-				8226EDC21B062BA90071F470 /* Sources */,
-				8226EDC31B062BA90071F470 /* Frameworks */,
-				8226EDC41B062BA90071F470 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8226EDC81B062BA90071F470 /* PBXTargetDependency */,
-			);
-			name = ABTextboxToolbarHandlerTests;
-			productName = ABTextboxToolbarHandlerTests;
-			productReference = 8226EDC61B062BA90071F470 /* ABTextboxToolbarHandlerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,10 +115,6 @@
 				TargetAttributes = {
 					8226EDAC1B062BA80071F470 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					8226EDC51B062BA90071F470 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 8226EDAC1B062BA80071F470;
 					};
 				};
 			};
@@ -194,7 +132,6 @@
 			projectRoot = "";
 			targets = (
 				8226EDAC1B062BA80071F470 /* ABTextboxToolbarHandler */,
-				8226EDC51B062BA90071F470 /* ABTextboxToolbarHandlerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,13 +144,6 @@
 				8226EDBC1B062BA80071F470 /* Main.storyboard in Resources */,
 				8226EDC11B062BA80071F470 /* LaunchScreen.xib in Resources */,
 				8226EDBE1B062BA80071F470 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8226EDC41B062BA90071F470 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,23 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8226EDC21B062BA90071F470 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8226EDCD1B062BA90071F470 /* ABTextboxToolbarHandlerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8226EDC81B062BA90071F470 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8226EDAC1B062BA80071F470 /* ABTextboxToolbarHandler */;
-			targetProxy = 8226EDC71B062BA90071F470 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8226EDBA1B062BA80071F470 /* Main.storyboard */ = {
@@ -305,7 +219,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -342,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -354,6 +268,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ABTextboxToolbarHandler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -364,42 +279,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ABTextboxToolbarHandler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		8226EDD41B062BA90071F470 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ABTextboxToolbarHandlerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABTextboxToolbarHandler.app/ABTextboxToolbarHandler";
-			};
-			name = Debug;
-		};
-		8226EDD51B062BA90071F470 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ABTextboxToolbarHandlerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ABTextboxToolbarHandler.app/ABTextboxToolbarHandler";
 			};
 			name = Release;
 		};
@@ -422,14 +304,7 @@
 				8226EDD21B062BA90071F470 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		8226EDD31B062BA90071F470 /* Build configuration list for PBXNativeTarget "ABTextboxToolbarHandlerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8226EDD41B062BA90071F470 /* Debug */,
-				8226EDD51B062BA90071F470 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
