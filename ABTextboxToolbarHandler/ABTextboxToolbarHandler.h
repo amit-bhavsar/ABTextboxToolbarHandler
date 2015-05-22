@@ -1,9 +1,9 @@
 //
-//  ABTextboxToolbarHandler.h
-//  ABTextboxToolbarHandler
+//  TKTextboxToolbarHandeler.h
+//  Trukit
 //
-//  Created by Amit on 15/05/15.
-//  Copyright (c) 2015 AmitBhavsar. All rights reserved.
+//  Created by Chintan Dave on 06/05/14.
+//  Copyright (c) 2014 AB. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,23 +23,24 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView;
 - (void)textViewDidBeginEditing:(UITextView *)textView;
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView;
+- (void)textViewDidEndEditing:(UITextView *)textView;
 
-- (void)textFieldEndWithDoneButtonwithView:(UIView *)txtBox;
+- (void)textboxHandlerButtonDoneTap:(UIView *)textBox;
 
 @end
 
 @interface ABTextboxToolbarHandler : NSObject
+
 @property (nonatomic) NSInteger offset;
 
 @property (nonatomic) BOOL showNextPrevious;
 
-@property (nonatomic, assign) CGFloat heightForScrollContent;
+@property (strong, nonatomic) UIBarButtonItem *btnDone;
 
 @property (nonatomic, strong) id<ABTextboxToolbarHandlerDelegate> delegate;
 
 - (instancetype)initWithTextboxs:(NSArray *)textBoxs andScroll:(UIScrollView *)scroll NS_DESIGNATED_INITIALIZER;
 
-- (void) btnDoneTap;
+- (void)btnDoneTap;
 
 @end
