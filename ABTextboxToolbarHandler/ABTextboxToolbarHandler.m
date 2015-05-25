@@ -115,9 +115,21 @@
 {
 	if(firstResponderIndex < (textBoxes.count - 1))
 	{
-		BOOL canBecome = [textBoxes[firstResponderIndex + 1] becomeFirstResponder];
+		UIView *txtView = (UIView*)textBoxes[firstResponderIndex + 1];
+		BOOL canUserInteraction = txtView.userInteractionEnabled;
 		
-		if(!canBecome)
+		if (canUserInteraction == YES)
+		{
+			BOOL canBecome = [textBoxes[firstResponderIndex + 1] becomeFirstResponder];
+			
+			if(!canBecome)
+			{
+				firstResponderIndex++;
+				
+				[self btnNextTap];
+			}
+		}
+		else
 		{
 			firstResponderIndex++;
 			
@@ -134,9 +146,21 @@
 {
 	if(firstResponderIndex > 0)
 	{
-		BOOL canBecome = [textBoxes[firstResponderIndex - 1] becomeFirstResponder];
+		UIView *txtView = (UIView*)textBoxes[firstResponderIndex - 1];
+		BOOL canUserInteraction = txtView.userInteractionEnabled;
 		
-		if(!canBecome)
+		if (canUserInteraction == YES)
+		{
+			BOOL canBecome = [textBoxes[firstResponderIndex - 1] becomeFirstResponder];
+			
+			if(!canBecome)
+			{
+				firstResponderIndex--;
+				
+				[self btnPreviousTap];
+			}
+		}
+		else
 		{
 			firstResponderIndex--;
 			

@@ -22,8 +22,7 @@
 	[scrlView setContentSize:CGSizeMake(320, 410)];
 	
 	//The sequence of the textfields are very important
-	handler = [[ABTextboxToolbarHandler alloc] initWithTextboxs:@[txtfield1,txtfield2,txtfield3,txtview1,txtfield4,txtfield5,txtfield6]
-                                                      andScroll:scrlView];
+	handler = [[ABTextboxToolbarHandler alloc] initWithTextboxs:@[txtfield1,txtfield2,txtfield3,txtview1,txtfield4,txtfield5,txtfield6] andScroll:scrlView];
 }
 
 - (void)textFieldEndWithDoneButtonwithView:(UIView *)txtBox
