@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82111FD11B12FA8F00F52E3D /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82111FD01B12FA8F00F52E3D /* Main-iPad.storyboard */; };
 		8226EDB31B062BA80071F470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226EDB21B062BA80071F470 /* main.m */; };
 		8226EDB61B062BA80071F470 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226EDB51B062BA80071F470 /* AppDelegate.m */; };
 		8226EDB91B062BA80071F470 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8226EDB81B062BA80071F470 /* ViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82111FD01B12FA8F00F52E3D /* Main-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-iPad.storyboard"; sourceTree = "<group>"; };
 		8226EDAD1B062BA80071F470 /* ABTextboxToolbarHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABTextboxToolbarHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8226EDB11B062BA80071F470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8226EDB21B062BA80071F470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				8226EDB71B062BA80071F470 /* ViewController.h */,
 				8226EDB81B062BA80071F470 /* ViewController.m */,
 				8226EDBA1B062BA80071F470 /* Main.storyboard */,
+				82111FD01B12FA8F00F52E3D /* Main-iPad.storyboard */,
 				8226EDBD1B062BA80071F470 /* Images.xcassets */,
 				8226EDBF1B062BA80071F470 /* LaunchScreen.xib */,
 				8226EDB01B062BA80071F470 /* Supporting Files */,
@@ -144,6 +147,7 @@
 				8226EDBC1B062BA80071F470 /* Main.storyboard in Resources */,
 				8226EDC11B062BA80071F470 /* LaunchScreen.xib in Resources */,
 				8226EDBE1B062BA80071F470 /* Images.xcassets in Resources */,
+				82111FD11B12FA8F00F52E3D /* Main-iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +276,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -284,6 +289,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

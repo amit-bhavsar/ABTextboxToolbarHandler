@@ -53,7 +53,15 @@
 		
 		offset = 50;
 		
-		spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 180;
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+		{
+			spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 200;
+		}
+		else
+		{
+			spaceWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 180;
+		}
+		
 		
 		[self makeToolbar];
 	}

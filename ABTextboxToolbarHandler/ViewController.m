@@ -19,10 +19,22 @@
 	[super viewDidLoad];
 	
     //Content size must be set befor ABTextboxToolbarHandler creation.
-	[scrlView setContentSize:CGSizeMake(320, 410)];
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		[scrlView setContentSize:CGSizeMake(768, 811)];
+	}
+	else
+	{
+		[scrlView setContentSize:CGSizeMake(320, 410)];
+	}
 	
 	//The sequence of the textfields are very important
 	handler = [[ABTextboxToolbarHandler alloc] initWithTextboxs:@[txtfield1,txtfield2,txtfield3,txtview1,txtfield4,txtfield5,txtfield6] andScroll:scrlView];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		[[NSNotificationCenter defaultCenter]addObserver:handler selector:@selector(btnDoneTap) name:UIKeyboardWillHideNotification object:nil];
+	}
 }
 
 - (void)textFieldEndWithDoneButtonwithView:(UIView *)txtBox

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+	{
+		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main-iPad" bundle:nil];
+		
+		ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+		
+		self.window.rootViewController = viewController;
+	}
+	
 	return YES;
 }
 
