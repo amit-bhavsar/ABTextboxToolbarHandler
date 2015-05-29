@@ -24,6 +24,11 @@ Often when we are creating application there will always some form in it. And wh
 ## Delegate : 
 When you use this code "handler" (Object of ABTextboxToolbarHandler) become Delegate of all textfields and textviews and it is require. So dont set Delegate of fields manually. If you need to access any delegate method than use ABTextboxToolbarHandlerDelegate.
 
+## Installation :
+There are two ways to ways to add the ABTextboxToolbarHandler library to your project. Add it as a regular library or install it through CocoaPods
+  
+    pod 'ABTextboxToolbarHandler'
+
 ## Customization :
 This tool can be customize to fit your need:
 
